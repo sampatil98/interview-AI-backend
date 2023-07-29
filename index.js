@@ -104,6 +104,7 @@ app.listen(8080,async()=>{
 app.get('/study-getQuestion', async (req, res) => {
   try {
     const {target}=req.query;
+    console.log(target);
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `give 1 question with proper answer with explaination on ${target}`,
