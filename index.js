@@ -103,9 +103,10 @@ app.listen(8080,async()=>{
 
 app.get('/study-getQuestion', async (req, res) => {
   try {
+    const {target}=req.query;
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `give 1 question with proper answer with explaination on node.js`,
+      prompt: `give 1 question with proper answer with explaination on ${target}`,
       max_tokens: 3000
     });
     // console.log(response.data);
